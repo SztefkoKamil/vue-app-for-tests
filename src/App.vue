@@ -1,13 +1,16 @@
 <template>
   <div id="app" class="app">
+    <TopBoard></TopBoard>
   </div>
 </template>
 
 <script>
+import TopBoard from './components/TopBoard/TopBoard'
 
 export default {
   name: 'app',
   components: {
+    TopBoard
   }
 }
 </script>
