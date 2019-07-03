@@ -1,6 +1,6 @@
 <template>
   <div class="right-panel__container">
-    <button @click="$store.commit('decrementClickCounter')">decrement</button>
+    <button class="right-panel__clickCounterDecrement" @click="$store.commit('decrementClickCounter')">decrement</button>
   </div>
 </template>
 
