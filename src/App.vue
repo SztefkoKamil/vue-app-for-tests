@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="app">
+  <div id="app" class="app__container">
     <TopBoard></TopBoard>
     <LeftPanel></LeftPanel>
     <RightPanel></RightPanel>
@@ -28,11 +28,21 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background: hsl(240, 40%, 10%);
+}
 
-.app {
+.app__container {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  width: 800px;
+  margin: 30px auto;
+  // border: 2px solid #fff;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 </style>

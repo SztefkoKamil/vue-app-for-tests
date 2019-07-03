@@ -15,7 +15,7 @@ export default {
 <style lang="scss">
 
 .left-panel__container {
-  width: 30vw;
+  width: 350px;
   height: 600px;
   background: hsl(160, 30%, 60%);
 }

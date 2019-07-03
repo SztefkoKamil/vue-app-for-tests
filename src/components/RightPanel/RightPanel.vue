@@ -15,7 +15,7 @@ export default {
 <style lang="scss">
 
 .right-panel__container {
-  width: 30vw;
+  width: 350px;
   height: 600px;
   background: hsl(20, 30%, 60%);
 }

@@ -15,7 +15,7 @@ export default {
 <style lang="scss">
 
 .top-board__container {
-  width: 60vw;
+  width: 700px;
   height: 300px;
   background: hsl(70, 0% ,80%);
 }
