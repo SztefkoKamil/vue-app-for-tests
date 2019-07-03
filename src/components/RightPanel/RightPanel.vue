@@ -1,5 +1,6 @@
 <template>
   <div class="right-panel__container">
+    <button @click="$store.commit('decrementClickCounter')">decrement</button>
   </div>
 </template>
 
@@ -7,8 +8,6 @@
 
 export default {
   name: 'RightPanel',
-  components: {
-  }
 }
 </script>
 

@@ -1,13 +1,23 @@
 <template>
   <div class="top-board__container">
+    <h3 class="top-board__clickCounterDisplay">{{ clickCounter }}</h3>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'TopBoard',
-  components: {
+  data(){
+    return {
+    }
+  },
+  computed: {
+    clickCounter(){
+      const counter = this.$store.getters.getClickCounter
+      return counter
+    }
   }
 }
 </script>
@@ -18,6 +28,7 @@ export default {
   width: 700px;
   height: 300px;
   background: hsl(70, 0% ,80%);
+  margin-bottom: 20px;
 }
 
 </style>

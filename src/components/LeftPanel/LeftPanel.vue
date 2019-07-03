@@ -1,5 +1,6 @@
 <template>
   <div class="left-panel__container">
+    <button class="left-panel__clickCounterIncrement" @click="$store.commit('incrementClickCounter')">increment</button>
   </div>
 </template>
 
@@ -7,8 +8,6 @@
 
 export default {
   name: 'LeftPanel',
-  components: {
-  }
 }
 </script>
 
