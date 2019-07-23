@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     clickCounter: 0,
-    toUpper: ''
+    toUpper: '',
+    toReverse: ''
   },
   getters: {
     getClickCounter(state) {
@@ -14,6 +15,9 @@ export default new Vuex.Store({
     },
     getToUpper(state){
       return state.toUpper
+    },
+    getToReverse(state) {
+      return state.toReverse
     }
   },
   mutations: {
@@ -25,11 +29,18 @@ export default new Vuex.Store({
     },
     toUpper(state, data){
       state.toUpper = data;
+    },
+    toReverse(state, data) {
+      state.toReverse = data
     }
   },
   actions: {
     toUpper(context, data){
       context.commit('toUpper', data.toUpperCase());
+    },
+    toReverse(context, data) {
+      const reversed = data.split('').reverse().join('')
+      context.commit('toReverse', reversed)
     }
   }
 })
