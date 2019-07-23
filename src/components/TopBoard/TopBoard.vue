@@ -1,6 +1,7 @@
 <template>
   <div class="top-board__container">
     <h3 class="top-board__clickCounterDisplay">{{ clickCounter }}</h3>
+    <h3 class="top-board__toUpperDisplay">{{ toUpper }}</h3>
   </div>
 </template>
 
@@ -17,6 +18,10 @@ export default {
     clickCounter(){
       const counter = this.$store.getters.getClickCounter
       return counter
+    },
+    toUpper(){
+      const toUpper = this.$store.getters.getToUpper
+      return toUpper
     }
   }
 }
