@@ -2,6 +2,7 @@
   <div class="top-board__container">
     <h3 class="top-board__clickCounterDisplay">{{ clickCounter }}</h3>
     <h3 class="top-board__toUpperDisplay">{{ toUpper }}</h3>
+    <h3 class="top-board__toReverseDisplay">{{ toReverse }}</h3>
   </div>
 </template>
 
@@ -22,6 +23,10 @@ export default {
     toUpper(){
       const toUpper = this.$store.getters.getToUpper
       return toUpper
+    },
+    toReverse() {
+      const toReverse = this.$store.getters.getToReverse
+      return toReverse
     }
   }
 }
