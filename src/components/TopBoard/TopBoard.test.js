@@ -12,7 +12,8 @@ describe('TopBoard.vue - tests', () => {
   beforeEach(() => {
     getters = {
       getClickCounter: jest.fn(() => 0),
-      getToUpper: jest.fn(() => 'OK')
+      getToUpper: jest.fn(() => 'OK'),
+      getToReverse: jest.fn(() => 'ko')
     }
     store = new Vuex.Store({ getters })
   })
@@ -28,9 +29,17 @@ describe('TopBoard.vue - tests', () => {
   it('should have h3.top-board__toUpperDisplay equal to OK', () => {
     const wrapper = shallowMount(TopBoard, { store, localVue })
 
-    const counterDisplay = wrapper.find('h3.top-board__toUpperDisplay')
+    const toUpperDisplay = wrapper.find('h3.top-board__toUpperDisplay')
     
-    expect(counterDisplay.text()).toBe('OK')
+    expect(toUpperDisplay.text()).toBe('OK')
+  })
+
+  it('should have h3.top-board__toReverseDisplay equal to OK', () => {
+    const wrapper = shallowMount(TopBoard, { store, localVue })
+
+    const toReverseDisplay = wrapper.find('h3.top-board__toReverseDisplay')
+    
+    expect(toReverseDisplay.text()).toBe('ko')
   })
 
 })
