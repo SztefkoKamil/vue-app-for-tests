@@ -3,31 +3,71 @@
     <h3 class="top-board__clickCounterDisplay">{{ clickCounter }}</h3>
     <h3 class="top-board__toUpperDisplay">{{ toUpper }}</h3>
     <h3 class="top-board__toReverseDisplay">{{ toReverse }}</h3>
+    <h3 class="top-board__timerBoomDisplay">{{ timerBoom }}</h3>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import { eventBus } from '../../main.js'
 
 export default {
   name: 'TopBoard',
   data(){
     return {
+      counterOn: false,
+      timerBoom: ''
     }
   },
   computed: {
-    clickCounter(){
-      const counter = this.$store.getters.getClickCounter
-      return counter
+    ...mapGetters([
+      'getClickCounter',
+      'getToUpper',
+      'getToReverse',
+      'getTimerBoom'
+      ]),
+    clickCounter() {
+      return this.getClickCounter
     },
     toUpper(){
-      const toUpper = this.$store.getters.getToUpper
-      return toUpper
+      return this.getToUpper
     },
     toReverse() {
-      const toReverse = this.$store.getters.getToReverse
-      return toReverse
+      return this.getToReverse
     }
+  },
+  methods: {
+    detonate(time) {
+      if(this.counterOn){ return }
+
+      this.counterOn = true;
+      time = +time
+
+      this.timerBoom = time
+      time--
+      
+      const interval = setInterval(() => {
+        if(time === 0){
+          this.counterOn = false
+          this.timerBoom = 'BOOM!'
+          clearInterval(interval)
+          this.resetTimer()
+        } else {
+          this.timerBoom = time
+          time--
+        }
+      }, 1000)
+    },
+    resetTimer() {
+      setTimeout(() => {
+        this.timerBoom = ''
+      }, 3000)
+    }
+  },
+  created() {
+    eventBus.$on('timerBoom', time => {
+      this.detonate(time)
+    })
   }
 }
 </script>
